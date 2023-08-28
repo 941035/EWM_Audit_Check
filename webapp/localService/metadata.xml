@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZEWM_DOCK_AUDITCHECK_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="CheckValidDelivery" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Docno"/>
+                </Key>
+                <Property Name="Docno" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Message" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Status" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="ToLineitems" Relationship="ZEWM_DOCK_AUDITCHECK_SRV.AssocDelLineitems" FromRole="FromRole_AssocDelLineitems" ToRole="ToRole_AssocDelLineitems"/>
+            </EntityType>
+            <EntityType Name="OutbDeliDetails" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Docno"/>
+                </Key>
+                <Property Name="Docno" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Itemno" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="docid" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="itemid" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="refitemno" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Quantity" Type="Edm.Decimal" Nullable="false" Precision="31" Scale="14" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Currstatus" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Auditcheck" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="AssocDelLineitems" sap:content-version="1">
+                <End Type="ZEWM_DOCK_AUDITCHECK_SRV.CheckValidDelivery" Multiplicity="1" Role="FromRole_AssocDelLineitems"/>
+                <End Type="ZEWM_DOCK_AUDITCHECK_SRV.OutbDeliDetails" Multiplicity="*" Role="ToRole_AssocDelLineitems"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_AssocDelLineitems">
+                        <PropertyRef Name="Docno"/>
+                    </Principal>
+                    <Dependent Role="ToRole_AssocDelLineitems">
+                        <PropertyRef Name="Docno"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZEWM_DOCK_AUDITCHECK_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="CheckValidDeliverySet" EntityType="ZEWM_DOCK_AUDITCHECK_SRV.CheckValidDelivery" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="OutbDeliDetailsSet" EntityType="ZEWM_DOCK_AUDITCHECK_SRV.OutbDeliDetails" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <AssociationSet Name="AssocDelLineitemsSet" Association="ZEWM_DOCK_AUDITCHECK_SRV.AssocDelLineitems" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="CheckValidDeliverySet" Role="FromRole_AssocDelLineitems"/>
+                    <End EntitySet="OutbDeliDetailsSet" Role="ToRole_AssocDelLineitems"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="https://parkerdewvm:8001/sap/opu/odata/sap/ZEWM_DOCK_AUDITCHECK_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://parkerdewvm:8001/sap/opu/odata/sap/ZEWM_DOCK_AUDITCHECK_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

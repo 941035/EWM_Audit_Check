@@ -1,0 +1,12 @@
+<mvc:View
+    controllerName="com.ewm.audit.parker.zewmauditcheck.controller.DelAuditMainView"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Shell >
+        <App id="idApp">
+            
+        </App>
+    </Shell>
+</mvc:View>

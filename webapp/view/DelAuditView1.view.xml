@@ -1,0 +1,37 @@
+<mvc:View
+    controllerName="com.ewm.audit.parker.zewmauditcheck.controller.DelAuditView1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    
+                <Page id="page" title="{i18n>title}">
+                    <content>
+                    <FlexBox
+                        height="100px"
+                        alignContent="Center"
+                        alignItems="Center"
+                        justifyContent="Center">
+                        <Label text="Outbound Delivery number" class="sapUiSmallMarginEnd" required="true" />
+                        <Input class="sapUiSmallMarginEnd" id="idInpDelNum" placeholder="Enter Outboun Delivery Number" maxLength="10" />                                               
+                        <!-- <Button text="Check" type="Accept" class="sapUiSmallMarginBegin" /> -->
+                        <ObjectStatus
+                        class="sapMObjectStatusSmall sapUiSmallMarginBegin"			
+                        text="Valid Delivery number"
+                        state="Success"
+                        icon="sap-icon://sys-enter-2" press="onPressCont" visible="false" id="idObjStatus"/>
+                        <Button text="Check" id="idCheck" type="Accept"  icon="sap-icon://check-availability" class="sapUiLargeMarginBegin" press="onPressCheck"/>  
+                        <Button text="Clear" id="idClear" type="Reject" icon="sap-icon://sys-cancel-2" class="sapUiSmallMarginBegin" press="onPressClear" /> 
+                    </FlexBox>                    
+                     </content>
+                     <footer>
+                        <Bar>
+                            <contentRight>
+                                <Button id="idButCont" text="Continue" visible="false" 
+                                        press="onPressCont" icon="sap-icon://display-more" type="Emphasized"></Button>
+                            </contentRight>
+                        </Bar>
+                     </footer>
+                </Page>
+
+</mvc:View>
