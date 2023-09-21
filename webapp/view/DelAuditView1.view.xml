@@ -13,7 +13,7 @@
                         alignItems="Center"
                         justifyContent="Center">
                         <Label text="Outbound Delivery number" class="sapUiSmallMarginEnd" required="true" />
-                        <Input class="sapUiSmallMarginEnd" id="idInpDelNum" placeholder="Enter Outboun Delivery Number" maxLength="10" />                                               
+                        <Input class="sapUiSmallMarginEnd" id="idInpDelNum" placeholder="Enter Outboun Delivery Number" maxLength="15" liveChange="removeExtraChar" change="removeExtraChar"/>                                               
                         <!-- <Button text="Check" type="Accept" class="sapUiSmallMarginBegin" /> -->
                         <ObjectStatus
                         class="sapMObjectStatusSmall sapUiSmallMarginBegin"			

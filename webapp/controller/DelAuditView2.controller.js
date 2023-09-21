@@ -12,7 +12,7 @@ sap.ui.define([
             var oTable = this.byId("documentTable");
 			oTable._getSelectAllCheckbox().setVisible(false);
             this.oDataModel = this.getOwnerComponent().getModel();
-            this.getView().byId("deliveryNumber").setText(this.getOwnerComponent().getModel("DocumentModel").getData().DocumentData[0].Docno);
+            this.getView().byId("deliveryNumber").setText(this.getOwnerComponent().getModel("DeliveryModel").getData().DeliveryNumber);
             },
             handleSelectionChange: function(){
 

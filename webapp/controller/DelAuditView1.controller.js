@@ -1,6 +1,9 @@
+
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel"
+    
+    
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -32,6 +35,9 @@ sap.ui.define([
                         var docModel = new JSONModel();
                         docModel.setData({DocumentData: oData.results});
                         
+                        var deliverModel = new JSONModel();
+                        deliverModel.setData({DeliveryNumber : oInpVal});
+                        that.getOwnerComponent().setModel(deliverModel, "DeliveryModel");
                         that.getOwnerComponent().setModel(docModel, "DocumentModel");
                         that.getOwnerComponent().getRouter().navTo("RoutAuditView2");
                         
@@ -102,6 +108,16 @@ sap.ui.define([
                     this.getView().byId("idCheck").setVisible(true);
                 }
                 
+            },
+            removeExtraChar: function(oEvent){
+                var enteredValue = oEvent.getParameter("newValue");
+                if (enteredValue.length == "14") {
+                    this.getView().byId("idInpDelNum").setValue(enteredValue.slice(6, 14));
+                }
+                else {
+                    return this.getView().byId("idInpDelNum").setValue(enteredValue);
+                }
+
             }
             
         });
